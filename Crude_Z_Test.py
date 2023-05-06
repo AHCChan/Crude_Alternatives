@@ -1659,8 +1659,8 @@ def Z_Test__STR(z_score, inverted=False):
     used, so there may be some very slight inaccuracies, on top of the slight
     inaccuracies inherent in Python.
     
-    For z-scores below -3.99 or above 3.99, this simply treats the z-score as
-    those numbers respectively.
+    For z-scores below -3.99 or above 3.99, this return "<0.00003" and
+    ">0.99997" respectively.
     
     @z_score
             (float)
@@ -1673,8 +1673,8 @@ def Z_Test__STR(z_score, inverted=False):
     """
     z_score = int(z_score*100)
     if inverted: z_score = -z_score
-    if z_score < -399: return "0.00003"
-    if z_score > 399: return "0.99997"
+    if z_score < -399: return "<0.00003"
+    if z_score > 399: return ">0.99997"
     return Z_TABLE__str[z_score]
 
 def SF(z_score):
